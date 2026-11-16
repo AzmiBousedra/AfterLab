@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AfterLab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Header ── -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <span class="brand-name">AfterLab</span>
+      <span class="brand-by">by Azmi</span>
+    </div>
+    <button id="settings-toggle" class="icon-btn" title="Settings" aria-label="Open settings">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+  </header>
+
+  <!-- ── Main View ── -->
+  <main id="main-view" class="main-view">
+
+    <!-- Tab bar -->
+    <nav class="section-nav" aria-label="Sections">
+      <button class="section-nav-btn active" type="button" data-target="section-quick" title="Quick Actions" aria-label="Quick Actions">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>Quick</span>
+      </button>
+      <button class="section-nav-btn" type="button" data-target="section-fast" title="Fast Tools" aria-label="Fast Tools">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Tools</span>
+      </button>
+      <button class="section-nav-btn" type="button" data-target="section-flow" title="Flow Curve + Anchor" aria-label="Flow Curve">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20c6-12 12-12 18-5"></path><circle cx="3" cy="20" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="21" cy="15" r="1.5" fill="currentColor" stroke="none"></circle></svg>
+        <span>Flow</span>
+      </button>
+      <button class="section-nav-btn" type="button" data-target="section-layer" title="Layer Tools" aria-label="Layer">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Layer</span>
+      </button>
+    </nav>
+
+    <!-- Quick Actions -->
+    <details id="section-quick" class="content-section collapsible-section" open>
+      <summary class="section-summary collapse-header"></summary>
+      <div class="collapsible-content section-body">
+        <div class="action-list">
+          <button class="action-btn" id="btn-precompose" title="Pre-Compose selected layers">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><rect x="7" y="7" width="10" height="10" rx="1"></rect></svg>
+            Pre-Compose
+          </button>
+          <button class="action-btn" id="btn-center" title="Center selected layers in comp">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            Center in Comp
+          </button>
+          <button class="action-btn" id="btn-save-png" title="Queue current frame as PNG">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Save PNG
+          </button>
+        </div>
+        <div class="info-block">
+          <div class="info-row"><span class="info-label">Project</span><span id="info-project-name" class="info-value">—</span></div>
+          <div class="info-row"><span class="info-label">Comp</span><span id="info-comp-name" class="info-value">—</span></div>
+          <div class="info-row"><span class="info-label">Size</span><span id="info-comp-size" class="info-value">—</span></div>
+          <div class="info-row"><span class="info-label">FPS</span><span id="info-frame-rate" class="info-value">—</span></div>
+          <div class="info-row"><span class="info-label">Saved</span><span id="info-last-saved" class="info-value">—</span></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Fast Tools -->
+    <details id="section-fast" class="content-section collapsible-section" open>
+      <summary class="section-summary collapse-header"></summary>
+      <div class="collapsible-content section-body">
+        <div class="btn-grid">
+          <button class="grid-btn" id="btn-adj" title="Create adjustment layer">ADJ</button>
+          <button class="grid-btn" id="btn-cam" title="Add camera with null controller">CAM</button>
+          <button class="grid-btn" id="btn-sol" title="Alt+click for native solid dialog">SOL</button>
+          <button class="grid-btn" id="btn-nul" title="Alt+click to create Null + Parent">NUL</button>
+          <button class="grid-btn" id="btn-trm" title="Trim selected layers to current time">TRM</button>
+          <button class="grid-btn" id="btn-ren" title="Rename selected layer">REN</button>
+          <button class="grid-btn" id="btn-dup" title="Duplicate selected layers">DUP</button>
+          <button class="grid-btn" id="btn-cls" title="Close all open composition viewers">CLS</button>
+        </div>
+        <div class="row-divider"><span>Macros</span></div>
+        <div class="btn-grid">
+          <button class="grid-btn macro-btn" id="macro-0" data-slot="0" title="Click apply · Alt capture · Shift clear">M1</button>
+          <button class="grid-btn macro-btn" id="macro-1" data-slot="1" title="Click apply · Alt capture · Shift clear">M2</button>
+          <button class="grid-btn macro-btn" id="macro-2" data-slot="2" title="Click apply · Alt capture · Shift clear">M3</button>
+          <button class="grid-btn macro-btn" id="macro-3" data-slot="3" title="Click apply · Alt capture · Shift clear">M4</button>
+          <button class="grid-btn macro-btn" id="macro-4" data-slot="4" title="Click apply · Alt capture · Shift clear">M5</button>
+          <button class="grid-btn macro-btn" id="macro-5" data-slot="5" title="Click apply · Alt capture · Shift clear">M6</button>
+          <button class="grid-btn macro-btn" id="macro-6" data-slot="6" title="Click apply · Alt capture · Shift clear">M7</button>
+          <button class="grid-btn macro-btn" id="macro-7" data-slot="7" title="Click apply · Alt capture · Shift clear">M8</button>
+        </div>
+        <p id="tips-panel" class="legend">Alt set · Click apply · Shift clear</p>
+      </div>
+    </details>
+
+    <!-- Flow Curve + Anchor -->
+    <details id="section-flow" class="content-section collapsible-section" open>
+      <summary class="section-summary collapse-header"></summary>
+      <div class="collapsible-content section-body flow-body">
+        <div class="flow-row">
+          <div class="anchor-col">
+            <p class="sub-label">Anchor</p>
+            <div class="anchor-grid" id="anchor-grid"></div>
+          </div>
+          <div class="curve-col">
+            <div id="flow-editor" class="flow-editor" aria-label="Bezier curve editor">
+              <svg class="flow-grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="0" y1="100" x2="100" y2="100"></line>
+                <line x1="0" y1="0" x2="0" y2="100"></line>
+                <line x1="25" y1="0" x2="25" y2="100"></line>
+                <line x1="50" y1="0" x2="50" y2="100"></line>
+                <line x1="75" y1="0" x2="75" y2="100"></line>
+              </svg>
+              <svg class="flow-curve-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line id="flow-guide-out" x1="0" y1="100" x2="25" y2="90"></line>
+                <line id="flow-guide-in" x1="100" y1="0" x2="25" y2="0"></line>
+                <path id="flow-path" d="M0,100 C25,90 25,0 100,0"></path>
+              </svg>
+              <button id="flow-h1" class="flow-handle" type="button" aria-label="Outgoing handle"></button>
+              <button id="flow-h2" class="flow-handle" type="button" aria-label="Incoming handle"></button>
+            </div>
+            <div class="flow-foot">
+              <div id="flow-values" class="flow-values">0.25, 0.10, 0.25, 1.00</div>
+              <button id="btn-flow-apply" class="btn-primary flow-apply-btn" title="Apply curve to selected keyframes">Apply</button>
+            </div>
+          </div>
+        </div>
+        <div class="curve-slots">
+          <button class="grid-btn curve-btn" id="curve-0" title="Click apply · Alt+click set · Shift+click clear">C1</button>
+          <button class="grid-btn curve-btn" id="curve-1" title="Click apply · Alt+click set · Shift+click clear">C2</button>
+          <button class="grid-btn curve-btn" id="curve-2" title="Click apply · Alt+click set · Shift+click clear">C3</button>
+          <button class="grid-btn curve-btn" id="curve-3" title="Click apply · Alt+click set · Shift+click clear">C4</button>
+          <button class="grid-btn curve-btn" id="curve-4" title="Click apply · Alt+click set · Shift+click clear">C5</button>
+          <button class="grid-btn curve-btn" id="curve-5" title="Click apply · Alt+click set · Shift+click clear">C6</button>
+          <button class="grid-btn curve-btn" id="curve-6" title="Click apply · Alt+click set · Shift+click clear">C7</button>
+          <button class="grid-btn curve-btn" id="curve-7" title="Click apply · Alt+click set · Shift+click clear">C8</button>
+        </div>
+        <p class="legend">Alt set · Click apply · Shift clear</p>
+      </div>
+    </details>
+
+    <!-- Layer -->
+    <details id="section-layer" class="content-section collapsible-section" open>
+      <summary class="section-summary collapse-header"></summary>
+      <div class="collapsible-content section-body">
+        <div class="layer-grid">
+          <button class="layer-btn" id="btn-freeze" title="Apply freeze frame on selected layer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+            Freeze Frame
+          </button>
+          <button class="layer-btn" id="btn-mirror-h" title="Mirror selected layers horizontally">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+            Mirror H
+          </button>
+          <button class="layer-btn" id="btn-mirror-v" title="Mirror selected layers vertically">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 3 3 3 3 8"></polyline><line x1="21" y1="21" x2="3" y2="3"></line><polyline points="3 16 3 21 8 21"></polyline><line x1="9" y1="15" x2="3" y2="21"></line><line x1="21" y1="3" x2="15" y2="9"></line></svg>
+            Mirror V
+          </button>
+          <button class="layer-btn" id="btn-reset" title="Reset transforms on selected layers">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Reset Xforms
+          </button>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- ── Settings View ── -->
+  <div id="settings-view" class="settings-view hidden">
+    <div class="settings-scroll">
+
+      <div class="settings-header">
+        <button id="settings-back" class="icon-btn" title="Back" aria-label="Back to main">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <span class="settings-title">Settings</span>
+      </div>
+
+      <!-- Accent Color -->
+      <div class="settings-group">
+        <p class="settings-group-label">Accent Color</p>
+        <div class="settings-card">
+          <div class="accent-swatches">
+            <button class="swatch" data-accent="blue"   style="--c:#007aff" title="Blue"   aria-label="Blue"></button>
+            <button class="swatch" data-accent="purple" style="--c:#bf5af2" title="Purple" aria-label="Purple"></button>
+            <button class="swatch" data-accent="green"  style="--c:#30d158" title="Green"  aria-label="Green"></button>
+            <button class="swatch" data-accent="orange" style="--c:#ff9f0a" title="Orange" aria-label="Orange"></button>
+            <button class="swatch" data-accent="red"    style="--c:#ff453a" title="Red"    aria-label="Red"></button>
+          </div>
+          <!-- Hidden select kept for JS wiring -->
+          <select id="accent-select" class="sr-only" aria-hidden="true" tabindex="-1">
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="green">Green</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Appearance -->
+      <div class="settings-group">
+        <p class="settings-group-label">Appearance</p>
+        <div class="settings-card">
+          <div class="toggle-row">
+            <span class="settings-label">Dark Mode</span>
+            <label class="toggle" for="darkmode-toggle" aria-label="Toggle dark mode">
+              <input type="checkbox" id="darkmode-toggle" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <span class="settings-label">Semantic Toast Colors</span>
+            <label class="toggle" for="semantic-colors-toggle" aria-label="Toggle semantic colors">
+              <input type="checkbox" id="semantic-colors-toggle" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="settings-group">
+        <p class="settings-group-label">About</p>
+        <div class="settings-card">
+          <span class="settings-label">AfterLab v1.0.0</span>
+          <p class="settings-hint">A modern toolkit for After Effects</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Modal ── -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <p class="modal-title" id="modal-title">Enter value</p>
+      <input type="text" id="modal-input" class="text-input" autocomplete="off" />
+      <div class="modal-actions">
+        <button class="btn-ghost modal-btn" id="modal-cancel">Cancel</button>
+        <button class="btn-primary modal-btn" id="modal-ok">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Toast ── -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</div>
+<script src="lib/CSInterface.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
