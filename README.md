@@ -6,7 +6,7 @@
 
 # AfterLab
 
-### Your whole After Effects workflow, one panel.
+### Your whole After Effects workflow, one panel. Don't pay for shortcuts and macros.
 
 Custom bezier easing, one-click layers, effect macros and anchor snapping, all docked in a single panel.<br />
 **Free forever. No account, no license key, no telemetry.**
